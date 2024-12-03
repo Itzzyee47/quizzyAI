@@ -3,23 +3,30 @@ from io import BytesIO
 from docx import Document
 import requests
 import json
-import re
+import re, os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+key = os.environ["API_KEY"]
  
-firebaseConfig = {
-  "apiKey": "AIzaSyC6LbV4AJAxbpBlMXtSBz77NgdgInpcl6c",
-  "authDomain": "lsachatbot.firebaseapp.com",
-  "databaseURL": "https://lsachatbot-default-rtdb.europe-west1.firebasedatabase.app",
-  "projectId": "lsachatbot",
-  "storageBucket": "lsachatbot.appspot.com",
-  "messagingSenderId": "817674467330",
-  "appId": "1:817674467330:web:a97a4b92bc7a8258308f1b"
+firebaseConfig ={
+  "apiKey": key,
+  "authDomain": "school-management-e7a71.firebaseapp.com",
+  "databaseURL": "https://school-management-e7a71-default-rtdb.firebaseio.com",
+  "projectId": "school-management-e7a71",
+  "storageBucket": "school-management-e7a71.appspot.com",
+  "messagingSenderId": "1065954376765",
+  "appId": "1:1065954376765:web:b42912ed618c5a7c11be54",
+  "measurementId": "G-ZMLC7LKVKC"
 }
 
 firebase_storage = pyrebase.initialize_app(firebaseConfig)
 storage = firebase_storage.storage()
 
 # Get the blob (file) from Firebase Storage
-test_file = "notes/CourseOutlineForBlender.docx"  #"https://firebasestorage.googleapis.com/v0/b/lsachatbot.appspot.com/o/notes%2FCourseOutlineForBlender.docx?alt=media&token=15c78df0-157b-4bbf-8b1e-dc3d85dc34fe"
+test_file = "notes/1732870719339_DIGITAL ELECTRONICS.docx"  #"https://firebasestorage.googleapis.com/v0/b/lsachatbot.appspot.com/o/notes%2FCourseOutlineForBlender.docx?alt=media&token=15c78df0-157b-4bbf-8b1e-dc3d85dc34fe"
+test2_file = "notes/neralNetworks.docx"
 
 
 def get_course_notes(file_path):
