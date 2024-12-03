@@ -2,7 +2,6 @@ pycrypto==2.6.1 --no-binary :all:
 pyrebase
 python-docx
 python-dotenv
-google.ai.generativelanguage
 flask
 flask-cors
 gunicorn
