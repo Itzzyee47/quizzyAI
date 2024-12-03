@@ -3,4 +3,5 @@ python-docx
 python-dotenv
 flask
 flask-cors
+urllib3
 gunicorn
