@@ -1,3 +1,4 @@
+pycryptodome
 pyrebase
 python-docx
 python-dotenv
