@@ -65,7 +65,7 @@ chat_session = model.start_chat(
 
 
 
-response = chat_session.send_message(f'Generate me a quiz {note}')
+response = chat_session.send_message(f'Generate me a quiz ')
 
 # Print out each of the function calls requested from this single call.
 # Note that the function calls are not executed. You need to manually execute the function calls.
@@ -77,7 +77,7 @@ for part in response.parts:
     args = ", ".join(f"{key}={val}" for key, val in fn.args.items())
     print(f"{fn.name}")
     #print(response.parts[0].text)
-    payload = dict(message=f"Generate me a 5-question multiple-choice quiz based on the sumarized module's content of highest importance. Each question must have 4 options, with only one correct answer. Heres the module notes {note}, return only the questions and options in a json format i can easily read with code.")
+    payload = dict(message=f"Generate me a 5-question multiple-choice quiz based on the sumarized module's content of highest importance. Each question must have 4 options, with only one correct answer. Heres the module notes , return only the questions and options in a json format i can easily read with code.")
     r = requests.post('https://genzylla.onrender.com/getResponds', data=payload)
     print(f"The responds data type is: {type(r.text)}")
     res = r.json()

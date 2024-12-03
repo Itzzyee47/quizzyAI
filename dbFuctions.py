@@ -84,7 +84,7 @@ def extract_quiz_json(data):
         
 def generate_quiz_with_answers(notes):
 
-    payload = dict(message=f"Generate me a 5-question multiple-choice quiz based on the sumarized module's content of highest importance. Each question must have 4 options, with only one correct answer. Heres the module notes {notes}, return only the questions and options in a json format i can easily read with code.")
+    payload = dict(message=f"Generate me a 5-question multiple-choice quiz based on the sumarized module's content. Each question must have 4 options, with only one correct answer. Heres the module notes {notes}, return only the questions and options in a json format i can easily read with code.")
     r = requests.post('https://genzylla.onrender.com/getResponds', data=payload)
     print(f"The responds data type is: {type(r.text)}")
     res = r.json()

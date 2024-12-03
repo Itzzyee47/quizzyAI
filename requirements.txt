@@ -1,7 +1,6 @@
 pyrebase
 python-docx
 python-dotenv
-google.ai.generativelanguage_v1beta.types
 google.generativeai
 flask
 flask-cors
