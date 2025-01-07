@@ -111,10 +111,10 @@ def extract_quiz_json(data):
     except Exception as e:
         print(f"Failed to parse JSON data: {e}")
         
-def generate_quiz_with_answers(notes):
+def generate_quiz_with_answers(notes, difficulty):
     json_example = str( {    "quiz": [        {           "question": "What is AI?",           "options": {"Option 1", "Option 2", "Option 3", "Option 4"},  "answer": "Option 1"       },       {      "question": "Define ML.",            "options": {"Option 1", "Option 2", "Option 3", "Option 4"},           "answer": "Option 1"        }    ]} )
     
-    payload = dict(message=f"Generate me a 10-question multiple-choice quiz based on the sumarized module's content of the most relevant contexts in the module. Each question must have 4 options, with only one correct answer. Heres the module notes {notes}, return only the questions and options in a json format i can easily read with code and must be identical to this JSON object in the following structure: {json_example}")
+    payload = dict(message=f"Generate me a 10-question multiple-choice quiz of difficulty {difficulty} based on the sumarized module's content of the most relevant contexts in the module. Each question must have 4 options, with only one correct answer. Heres the module notes {notes}, return only the questions and options in a json format i can easily read with code and must be identical to this JSON object in the following structure: {json_example}")
     r = requests.post('https://genzylla.onrender.com/getResponds', data=payload)
     print(f"The responds data type is: {type(r.text)}")
     res = r.json()

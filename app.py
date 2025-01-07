@@ -14,12 +14,13 @@ def generate_quiz():
         # Extract Firebase ref from request
         data = request.json
         firebase_ref = data["firebase_ref"]
+        difficulty = data["difficulty"]
 
         # Get notes
         notes = get_course_notes(firebase_ref)
 
         # Generate quiz
-        raw_quiz_data = generate_quiz_with_answers(notes)
+        raw_quiz_data = generate_quiz_with_answers(notes, difficulty)
 
         # Format JSON
         quiz_json = raw_quiz_data
